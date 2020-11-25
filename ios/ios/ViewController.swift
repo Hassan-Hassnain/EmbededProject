@@ -28,13 +28,11 @@ class ViewController: UIViewController {
         button.center = view.center
         view.addSubview(button)
         button.addTarget(self, action: #selector(highScoreButtonTapped), for: .touchUpInside)
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        highScoreButtonTapped()
+         highScoreButtonTapped()
     }
-
      @objc func highScoreButtonTapped() {
         NSLog("Hello")
         let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
@@ -47,7 +45,7 @@ class ViewController: UIViewController {
         
         let rootView = RCTRootView(
             bundleURL: jsCodeLocation!,
-            moduleName: "RNHighScores",
+            moduleName: "RNApp",
             initialProperties: mockData as [NSObject : AnyObject],
             launchOptions: nil
         )
