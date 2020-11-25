@@ -1,0 +1,15 @@
+{
+    "name": "EmbededProject",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node node_module/react-native/local-cli/cli.js bundle --entry-file='index.js' --boundle-output='./jsbundle' --dev=false --platform='ios' --assetts-dest='./ios'"
+    },
+    "dependencies": {
+        "react-native": "^0.63.3"
+    },
+    "devDependencies": {
+        "metro": "^0.58.0",
+        "metro-core": "^0.58.0"
+    }
+}
