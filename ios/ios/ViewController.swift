@@ -10,16 +10,32 @@ import React
 
 class ViewController: UIViewController {
 
+    let button: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Load React-Native View", for: .normal)
+        btn.layer.cornerRadius = 20
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.black.cgColor
+        btn.backgroundColor = .darkGray
+        btn.setTitleColor(.white, for: .normal)
+        
+        return btn
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        button.frame = CGRect(x: 0, y: 0, width: view.frame.size.width - 100, height: 60)
+        button.center = view.center
+        view.addSubview(button)
+        button.addTarget(self, action: #selector(highScoreButtonTapped), for: .touchUpInside)
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         highScoreButtonTapped()
     }
 
-     func highScoreButtonTapped() {
+     @objc func highScoreButtonTapped() {
         NSLog("Hello")
         let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
         let mockData:NSDictionary = ["scores":
